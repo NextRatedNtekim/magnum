@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Magnum Photobooth Events & Rentals
 
 Production-ready marketing site for Magnum Photobooth Events & Rentals — Toronto's premium
@@ -107,3 +108,6 @@ Before going live, update:
 - Instagram handle/link in `src/components/layout/Footer.tsx`
 - `og-image.jpg` referenced in `index.html` (add a real 1200×630 image to `public/`)
 - Canonical/OG URLs in `index.html` if the domain differs from `magnumphotobooth.com`
+=======
+# magnum
+>>>>>>> 49e13ba2983049e33383039aea60657f867bd9f4
