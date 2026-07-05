@@ -1,11 +1,12 @@
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { BookingForm } from '@/components/forms/BookingForm';
+import { Reveal } from '@/components/ui/Reveal';
 
 export function BookNow() {
   return (
     <section className="py-20 sm:py-28">
       <div className="container-magnum grid lg:grid-cols-[0.9fr_1.3fr] gap-16">
-        <div>
+        <Reveal>
           <SectionHeading
             eyebrow="Book Now"
             title="Tell us about your event."
@@ -17,10 +18,12 @@ export function BookNow() {
               magnumeventrentals@gmail.com
             </a>
           </div>
-        </div>
-        <div className="glass-subtle rounded-3xl p-6 sm:p-10">
-          <BookingForm />
-        </div>
+        </Reveal>
+        <Reveal delay={0.1} variant="scale-blur">
+          <div className="glass-subtle rounded-3xl p-6 sm:p-10">
+            <BookingForm />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

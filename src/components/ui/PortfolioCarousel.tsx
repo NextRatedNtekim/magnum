@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import type { KeyboardEvent } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { PortfolioItem } from '@/types';
-import { PlaceholderImage } from './PlaceholderImage';
+import { TiltImage } from './TiltImage';
 
 interface PortfolioCarouselProps {
   items: PortfolioItem[];
@@ -104,7 +104,14 @@ export function PortfolioCarousel({ items, interval = 3800, className = '' }: Po
               aria-hidden={a !== 0}
             >
               <div className="glass rounded-2xl overflow-hidden">
-                <PlaceholderImage label={a === 0 ? item.caption : undefined} aspect="3/4" />
+                <TiltImage
+                  src={item.image}
+                  alt={item.imageAlt}
+                  aspect="3/4"
+                  width={500}
+                  parallax={a === 0 ? 14 : 0}
+                  tilt={a === 0 ? 8 : 0}
+                />
               </div>
             </motion.div>
           );

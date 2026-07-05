@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Accordion } from '@/components/ui/Accordion';
+import { Reveal } from '@/components/ui/Reveal';
 import { FAQ_ITEMS, SITE } from '@/data/content';
 
 export function FAQ() {
@@ -9,7 +10,7 @@ export function FAQ() {
     <>
       <section className="py-20 sm:py-28">
         <div className="container-magnum grid lg:grid-cols-[0.8fr_1.2fr] gap-16">
-          <div>
+          <Reveal>
             <SectionHeading
               eyebrow="FAQs"
               title="Questions, answered."
@@ -21,22 +22,26 @@ export function FAQ() {
             >
               Email us <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
-          </div>
-          <Accordion items={FAQ_ITEMS} />
+          </Reveal>
+          <Reveal delay={0.1} variant="scale-blur">
+            <Accordion items={FAQ_ITEMS} />
+          </Reveal>
         </div>
       </section>
 
       <section className="py-24 sm:py-32">
         <div className="container-magnum">
-          <div className="glass rounded-[2.5rem] px-6 sm:px-16 py-16 sm:py-20 text-center flex flex-col items-center gap-6">
-            <h2 className="font-display text-4xl sm:text-5xl text-porcelain text-balance max-w-2xl">
-              Still have questions about your event?
-            </h2>
-            <Button as="link" to="/book-now" size="lg">
-              Book Now
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Button>
-          </div>
+          <Reveal variant="scale-blur">
+            <div className="glass rounded-[2.5rem] px-6 sm:px-16 py-16 sm:py-20 text-center flex flex-col items-center gap-6">
+              <h2 className="font-display text-4xl sm:text-5xl text-porcelain text-balance max-w-2xl">
+                Still have questions about your event?
+              </h2>
+              <Button as="link" to="/book-now" size="lg">
+                Book Now
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

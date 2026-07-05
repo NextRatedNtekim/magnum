@@ -9,18 +9,18 @@
 --------------------------------------------------- */
 @theme {
   /* Color */
-  --color-ink: #16110f;
-  --color-ink-raised: #201812;
-  --color-ink-line: #35291f;
-  --color-porcelain: #f7f2e9;
-  --color-porcelain-dim: #eee6d6;
-  --color-champagne: #c6a15b;
-  --color-champagne-light: #e3caa0;
-  --color-champagne-dim: #8a7248;
+  --color-ink: #050505;
+  --color-ink-raised: #0f0f0f;
+  --color-ink-line: #262626;
+  --color-porcelain: #f4f2ec;
+  --color-porcelain-dim: #e8e4d8;
+  --color-champagne: #b08a45;
+  --color-champagne-light: #d4b876;
+  --color-champagne-dim: #6b5429;
   --color-bordeaux: #6d1524;
   --color-bordeaux-light: #93283a;
-  --color-charcoal: #241d17;
-  --color-mist: #b8ac9a;
+  --color-charcoal: #201a12;
+  --color-mist: #aca79c;
 
   /* Type */
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
@@ -156,32 +156,54 @@
   }
 
   .glass-champagne {
-    background: linear-gradient(155deg, rgba(198, 161, 91, 0.85), rgba(198, 161, 91, 0.72));
+    background: linear-gradient(155deg, rgba(176, 138, 69, 0.85), rgba(176, 138, 69, 0.72));
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.5),
-      0 8px 24px -6px rgba(198, 161, 91, 0.45);
+      0 8px 24px -6px rgba(176, 138, 69, 0.45);
   }
 
-  /* .glass-nav {
+  .glass-nav {
     background: linear-gradient(155deg, rgba(30, 24, 19, 0.72), rgba(22, 17, 15, 0.6));
-    -webkit-backdrop-filter: blur(24px) saturate(170%);
     backdrop-filter: blur(24px) saturate(170%);
+    -webkit-backdrop-filter: blur(24px) saturate(170%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.16),
       0 12px 40px -12px rgba(0, 0, 0, 0.6);
-  } */
-   .glass-nav{
-    background: rgba(30,24,19,.28);
+  }
 
-    backdrop-filter: blur(24px) saturate(150%);
-    -webkit-backdrop-filter: blur(24px) saturate(150%);
+  /* Continuous horizontal marquee — CSS-driven for smooth, jank-free
+     infinite scroll (better suited to this than a JS-driven loop).
+     Pauses on hover/focus so a person can linger on a photo. */
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .marquee-track {
+    animation: marquee-scroll 42s linear infinite;
+  }
+  .marquee-track:hover,
+  .marquee-track:focus-within {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
 
-    border:1px solid rgba(255,255,255,.12);
-}
+  /* Fades the marquee's edges into the background instead of a hard cut */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
 
   .glass-hover {
     transition:
@@ -190,7 +212,7 @@
       transform 0.25s ease;
   }
   .glass-hover:hover {
-    border-color: rgba(198, 161, 91, 0.45);
+    border-color: rgba(176, 138, 69, 0.45);
     background: linear-gradient(155deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
   }
 

@@ -23,12 +23,16 @@ export interface RentalCategory {
   name: string;
   description: string;
   features: string[];
+  image: string;
+  imageAlt: string;
 }
 
 export interface PortfolioItem {
   id: string;
   caption: string;
   category: string;
+  image: string;
+  imageAlt: string;
 }
 
 export interface BookingFormValues {
