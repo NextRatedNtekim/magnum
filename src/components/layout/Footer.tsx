@@ -67,7 +67,12 @@ export function Footer() {
       <div className="border-t border-ink-line">
         <div className="container-magnum py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-mist">
           <p>&copy; {year} {SITE.fullName}. All rights reserved.</p>
-          <p>Toronto, Ontario</p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy-policy" className="hover:text-champagne transition-colors">
+              Privacy Policy
+            </a>
+            {/* <p>Toronto, Ontario</p> */}
+          </div>
         </div>
       </div>
     </footer>

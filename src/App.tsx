@@ -10,6 +10,9 @@ const BookNow = lazy(() => import('@/pages/BookNow').then((m) => ({ default: m.B
 const SelfieBooth = lazy(() => import('@/pages/SelfieBooth').then((m) => ({ default: m.SelfieBooth })));
 const Rentals = lazy(() => import('@/pages/Rentals').then((m) => ({ default: m.Rentals })));
 const FAQ = lazy(() => import('@/pages/FAQ').then((m) => ({ default: m.FAQ })));
+const PrivacyPolicy = lazy(() =>
+  import('@/pages/Privacypolicy').then((m) => ({ default: m.PrivacyPolicy }))
+);
 const NotFound = lazy(() => import('@/pages/NotFound').then((m) => ({ default: m.NotFound })));
 
 function RouteFallback() {
@@ -66,6 +69,14 @@ function App() {
           element={
             <Suspense fallback={<RouteFallback />}>
               <FAQ />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Suspense fallback={<RouteFallback />}>
+              <PrivacyPolicy />
             </Suspense>
           }
         />

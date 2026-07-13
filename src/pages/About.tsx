@@ -47,18 +47,28 @@ export function About() {
           <Reveal delay={0.1} className="flex flex-col gap-5">
             <span className="eyebrow text-champagne">Our Story</span>
             <h2 className="font-display text-3xl sm:text-4xl text-porcelain text-balance">
-              We started Magnum after one too many disappointing photo booths.
+              We Started Magnum Because We Knew Photo Booths Could Be Better
             </h2>
             <div className="flex flex-col gap-4 text-mist leading-relaxed">
               <p>
-                We&rsquo;re {SITE.founders}, the founders of {SITE.fullName}. After attending countless
-                events with low-quality photo booths, disengaged attendants, and outdated, cheesy setups,
-                we knew there had to be a better way.
+                We&rsquo;re {SITE.founders}, founders of {SITE.fullName}.
               </p>
               <p>
-                Our vision was simple: create a photo booth experience that feels as luxurious and
-                professional as the events it&rsquo;s part of — never an afterthought, always a
-                highlight.
+                After attending countless weddings, corporate events, and celebrations, we noticed
+                the same pattern: blurry photos, outdated booth designs, and attendants who did
+                little to elevate the guest experience. Photo booths often felt like an afterthought
+                instead of a memorable part of the event.
+              </p>
+              <p>
+                We believed there was a better way. So we created Magnum with one goal in mind—to
+                deliver a premium photo booth experience that combines stunning DSLR-quality
+                photography, elegant modern booth designs, and exceptional customer service. Every
+                detail is thoughtfully curated to complement your event, engage your guests, and
+                create keepsakes they&rsquo;ll cherish long after the celebration ends.
+              </p>
+              <p>
+                At Magnum, we don&rsquo;t just provide a photo booth—we create an experience that
+                feels as sophisticated, seamless, and unforgettable as your event itself.
               </p>
             </div>
           </Reveal>

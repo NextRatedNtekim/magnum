@@ -294,7 +294,7 @@ export function BookingForm() {
           />
           <span>
             I agree to be contacted about my quote. See our{' '}
-            <a href="/faqs" className="text-champagne underline underline-offset-2">
+            <a href="/privacy-policy" className="text-champagne underline underline-offset-2">
               Privacy Policy
             </a>{' '}
             for details.

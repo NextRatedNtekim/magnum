@@ -30,7 +30,7 @@ export function Home() {
               className="eyebrow text-champagne flex items-center gap-2"
             >
               <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-              {SITE.city}&rsquo;s Premium Photo Booth Co.
+              Magnum's Premium Photo Booth Co.
             </motion.span>
 
             <AnimatedHeadline
@@ -46,10 +46,11 @@ export function Home() {
               initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
               animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
-              className="text-lg text-mist max-w-lg leading-relaxed"
+              className="text-base text-mist max-w-lg leading-relaxed"
             >
-              High-resolution DSLR imaging, modern premium booth designs, and dedicated on-site
-              attendants. Sophistication and fun, captured at every event.
+              Elevate your event with stunning DSLR-quality photos, beautifully designed premium
+              photo booths, and dedicated on-site attendants. Where elegance meets entertainment,
+              and every moment becomes a lasting memory.
             </motion.p>
 
             <motion.div
