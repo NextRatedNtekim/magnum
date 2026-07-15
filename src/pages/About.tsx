@@ -60,14 +60,14 @@ export function About() {
                 instead of a memorable part of the event.
               </p>
               <p>
-                We believed there was a better way. So we created Magnum with one goal in mind—to
+                We believed there was a better way. So we created Magnum with one goal in mind, to
                 deliver a premium photo booth experience that combines stunning DSLR-quality
                 photography, elegant modern booth designs, and exceptional customer service. Every
                 detail is thoughtfully curated to complement your event, engage your guests, and
                 create keepsakes they&rsquo;ll cherish long after the celebration ends.
               </p>
               <p>
-                At Magnum, we don&rsquo;t just provide a photo booth—we create an experience that
+                At Magnum, we don&rsquo;t just provide a photo booth, we create an experience that
                 feels as sophisticated, seamless, and unforgettable as your event itself.
               </p>
             </div>

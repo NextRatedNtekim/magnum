@@ -65,7 +65,7 @@ export function BookingForm() {
         <CheckCircle2 className="w-12 h-12 text-champagne" aria-hidden="true" />
         <h3 className="font-display text-2xl text-porcelain">Request sent!</h3>
         <p className="text-mist max-w-md">
-          Thank you for reaching out. We\u2019ll review your event details and get back to you with a quote
+          Thank you for reaching out. We will review your event details and get back to you with a quote
           shortly.
         </p>
         <Button type="button" variant="outline" onClick={() => setStatus('idle')} className="mt-2">
