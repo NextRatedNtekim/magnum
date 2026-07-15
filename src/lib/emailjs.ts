@@ -1,30 +1,27 @@
 import emailjs from '@emailjs/browser';
 import type { BookingFormValues } from '@/types';
 
-// EmailJS is configured entirely through environment variables so no
-// secrets live in source. Create a .env.local (see .env.example) with:
-//   VITE_EMAILJS_SERVICE_ID
-//   VITE_EMAILJS_TEMPLATE_ID
-//   VITE_EMAILJS_PUBLIC_KEY
-// Sign up free at https://www.emailjs.com — the public key is safe to
-// expose in client code by design (it's not a secret).
+
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+const AUTOREPLY_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTOREPLY as string | undefined;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
 
-export const isEmailConfigured = Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY);
+export const isEmailConfigured = Boolean(
+  SERVICE_ID && TEMPLATE_ID && AUTOREPLY_TEMPLATE_ID && PUBLIC_KEY
+);
 
 export class EmailConfigError extends Error {}
 
 export async function sendBookingRequest(values: BookingFormValues): Promise<void> {
-  if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+  if (!SERVICE_ID || !TEMPLATE_ID || !AUTOREPLY_TEMPLATE_ID || !PUBLIC_KEY) {
     throw new EmailConfigError(
       'Email service is not configured yet. Add your EmailJS keys to .env.local — see README.md.'
     );
   }
 
-  // Template params — field names should match the variables used in
-  // your EmailJS template (e.g. {{first_name}}, {{email}}, etc).
+  // Template params — field names must match the {{variables}} used in
+  // both EmailJS templates.
   const templateParams = {
     first_name: values.firstName,
     last_name: values.lastName,
@@ -42,5 +39,16 @@ export async function sendBookingRequest(values: BookingFormValues): Promise<voi
     details: values.details || 'No additional details provided.',
   };
 
+  // Send the business notification first — if this fails, the customer
+  // never gets a false "we received it" auto-reply.
   await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY });
+
+  // Auto-reply to the customer. Wrapped so a failure here doesn't make
+  // the whole submission look like it failed — the booking was already
+  // captured by the notification email above.
+  try {
+    await emailjs.send(SERVICE_ID, AUTOREPLY_TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY });
+  } catch (err) {
+    console.error('Auto-reply email failed to send:', err);
+  }
 }
